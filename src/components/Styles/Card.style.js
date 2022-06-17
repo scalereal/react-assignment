@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderStyle = styled.div`
+export const HeaderStyle = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,9 +10,7 @@ export const ListHeadingStyle = styled.h1`
   font-family: "Roboto Mono";
   font-size: 48px;
   font-weight: 400;
-  line-height: 63px;
-  letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
   color: #000000;
   margin: 23px 0 40px 0;
 `;
@@ -20,22 +18,24 @@ export const ListHeadingStyle = styled.h1`
 export const InputBoxStyle = styled.input`
   width: 300px;
   height: 43px;
+  text-align: left;
+  padding-left: 16px;
 `;
 
-export const CardDivStyle = styled.div`
+export const CardDivStyle = styled.article`
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 149px;
-  margin-top: 30px;
+  margin-top: 66px;
 `;
-export const CardsStyle = styled.div`
+export const CardsStyle = styled.article`
   display: flex;
   flex-wrap: wrap;
   gap: 48px 75px;
 `;
 
-export const CardStyle = styled.div`
+export const CardStyle = styled.article`
   height: 374px;
   width: 350px;
   border-radius: 20px;
@@ -44,12 +44,11 @@ export const CardStyle = styled.div`
   position: relative;
 `;
 
-export const ImageStyle = styled.img`
+export const CardsImageStyle = styled.img`
   width: 350px;
   height: 374px;
   border-radius: 20px;
-  
-`;
+`
 export const TitleStyle = styled.h1`
   position: absolute;
   left: 31.43%;
@@ -69,8 +68,7 @@ export const ButtonStyle = styled.button`
   top: 287px;
   left: 103px;
   right: 102px;
-  bottom: 56px;  
-
+  bottom: 56px;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 500;

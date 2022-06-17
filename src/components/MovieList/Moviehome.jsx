@@ -15,6 +15,7 @@ const Moviehome = () => {
       <InputBoxStyle
         type="text"
         placeholder="Search"
+        autoFocus 
         onChange={(e) => setInput(e.target.value)}
       />
       <MovieCard input={input} />

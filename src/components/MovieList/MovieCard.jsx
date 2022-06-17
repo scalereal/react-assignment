@@ -16,7 +16,6 @@ const MovieCard = ({ input }) => {
   const getMovie = async (url) => {
     const res = await fetch(url);
     const resResults = await res.json();
-    console.log(resResults);
     const result = resResults.results;
     setData(result);
     
