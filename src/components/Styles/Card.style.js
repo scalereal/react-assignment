@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import searchIcon from "../Assets/SearchBar.png";
 
 export const HeaderStyle = styled.header`
   display: flex;
@@ -20,6 +21,62 @@ export const InputBoxStyle = styled.input`
   height: 43px;
   text-align: left;
   padding-left: 16px;
+  background: transparent url(${searchIcon});
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position: calc(100% - 20px) center;
+  &:focus::placeholder {
+    color: white;
+  }
+`;
+export const TitleStyle = styled.h1`
+  position: absolute;
+  left: 96px;
+  right: 94px;
+  top: 136px;
+  bottom: 127px;
+  font-family: "Rubik";
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  width: 111px;
+  height: 56px;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  opacity: 0;
+  z-index: 2;
+`;
+
+export const ButtonStyle = styled.button`
+  position: absolute;
+  top: 245px;
+  left: 89px;
+  right: 87px;
+  bottom: 37px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #352c9a;
+  color: white;
+  width: 145px;
+  height: 43px;
+  margin-top: 20px;
+  border-style: none;
+  opacity: 0;
+  z-index: 2;
+
+  &:hover {
+    background-color: #724fd8;
+  }
+  &:active {
+    text-decoration: underline;
+  }
+  &:disabled {
+    background-color: #626262;
+  }
 `;
 
 export const CardDivStyle = styled.article`
@@ -34,50 +91,54 @@ export const CardsStyle = styled.article`
   flex-wrap: wrap;
   gap: 48px 75px;
 `;
+export const CardsImageStyle = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+
+  @media (max-width: 1230px) {
+    width: 300px;
+    height: 320px;
+    margin: 24px auto 24px auto;
+  }
+`;
 
 export const CardStyle = styled.article`
   height: 374px;
   width: 350px;
   border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.25);
   position: relative;
-`;
-
-export const CardsImageStyle = styled.img`
-  width: 350px;
-  height: 374px;
+  &::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: 250ms ease-out;
   border-radius: 20px;
-`
-export const TitleStyle = styled.h1`
-  position: absolute;
-  left: 31.43%;
-  right: 31.43%;
-  top: 42.51%;
-  bottom: 50%;
-  font-family: "Rubik";
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 0.004em;
-  color: #ffffff;
-`;
+}
+&:hover::after {
+  opacity: 0.6;
+  background-color: #626262;
+}
+&:hover  ${TitleStyle} {
+  opacity: 1;
 
-export const ButtonStyle = styled.button`
+}
+&:hover  ${ButtonStyle} {
+  opacity: 1;
+
+}
+  @media (max-width: 1230px) {
+    width: 300px;
+    height: 320px;
+    margin: 24px auto 24px auto;
+    &::after {
+  content: '';
   position: absolute;
-  top: 287px;
-  left: 103px;
-  right: 102px;
-  bottom: 56px;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 0.004em;
-  background-color: #352c9a;
-  color: white;
-  width: 145px;
-  height: 43px;
-  border-style: none;
+  top: 22px;
+  
+  }
+}
 `;

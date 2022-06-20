@@ -5,7 +5,6 @@ import {
   InputBoxStyle,
   HeaderStyle,
 } from "../Styles/Card.style";
-
 const Moviehome = () => {
   const [input, setInput] = useState("");
 
@@ -15,7 +14,6 @@ const Moviehome = () => {
       <InputBoxStyle
         type="text"
         placeholder="Search"
-        autoFocus 
         onChange={(e) => setInput(e.target.value)}
       />
       <MovieCard input={input} />

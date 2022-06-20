@@ -21,7 +21,7 @@ const MovieCard = ({ input }) => {
     
   };
   useEffect(() => {
-    if (input.length == 0) {
+    if (input.length === 0) {
       getMovie(API_URL);
     } else {
       getMovie(searchURL + input);

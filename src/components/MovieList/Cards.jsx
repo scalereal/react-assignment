@@ -7,9 +7,8 @@ import {
   CardsStyle,
   ButtonStyle,
   TitleStyle,
-  CardsImageStyle
+  CardsImageStyle,
 } from "../Styles/Card.style";
-// import {} from '../Styles/Card.style'
 
 const Cards = ({ data }) => {
   const navigate = useNavigate();
@@ -21,15 +20,24 @@ const Cards = ({ data }) => {
         return (
           <CardStyle key={item.id}>
             {item.poster_path ? (
-              <CardsImageStyle src={IMG_URL + item.poster_path} alt={item.title} />
+              <CardsImageStyle
+                src={IMG_URL + item.poster_path}
+                alt={item.title}
+              />
             ) : (
               <CardsImageStyle src={fake_img} alt={item.title} />
             )}
 
             <TitleStyle>{item.title}</TitleStyle>
-            <ButtonStyle onClick={(e)=>{
-              navigate("/booking", {state:IMG_URL+item.poster_path})
-            }}>Book Now</ButtonStyle>
+            <ButtonStyle
+              onClick={(e) => {
+                navigate("/booking", {
+                  state: { path: IMG_URL + item.poster_path, MovieId: item.id },
+                });
+              }}
+            >
+              Book Now
+            </ButtonStyle>
           </CardStyle>
         );
       })}
