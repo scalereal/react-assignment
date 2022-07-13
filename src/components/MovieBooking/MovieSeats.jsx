@@ -11,27 +11,10 @@ import {
   ListStyle,
   SeatRowStyle,
 } from "../Styles/Seat.style";
-const digitArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const seats = {
-  data: [
-    {
-      id: "A",
-      seat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    },
-    {
-      id: "B",
-      seat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    },
-    {
-      id: "C",
-      seat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    },
-    {
-      id: "D",
-      seat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    },
-  ],
-};
+const seatsData = {
+    id: ["A", "B", "C", "D"],
+    seat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  };
 
 const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
   const [Visible, setVisible] = useState(false);
@@ -80,31 +63,36 @@ const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
     <SeatTableStyle>
       <article>
         <ListStyle>
-          {digitArr.map((digit, index) => (
+          {seatsData.seat.map((digit, index) => (
             <li key={index}>{digit}</li>
           ))}
         </ListStyle>
-        {seats.data.map((item, step) => (
-          <SeatStyle key={item + step}>
-            <SeatRowStyle>{item.id}</SeatRowStyle>
-            {item.seat.map((sub, index) => (
-              <article
-                key={item.id + (index + 1)}
-                onClick={() => {
-                  ClickHandel(item.id + (index + 1));
-                }}
-              >
-                {selectedSeat.includes(item.id + (index + 1)) ? (
-                  <img src={blackSeatSvg} alt="whiteSeat" />
-                ) : temp.includes(item.id + (index + 1)) ? (
-                  <img src={blueSeatSvg} alt="blackSeat" />
-                ) : (
-                  <img src={whiteSeatSvg} alt="blackSeat" />
-                )}
-              </article>
-            ))}
-          </SeatStyle>
-        ))}
+        {seatsData.id.map((item) => {
+          return (
+            <SeatStyle key={item}>
+              <SeatRowStyle>{item}</SeatRowStyle>
+              {seatsData.seat.map((set) => {
+                return (
+                  <div
+                    key={set}
+                    onClick={() => {
+                      ClickHandel(item + set);
+                    }}
+                  >
+                    {
+                    selectedSeat.includes(item + set) ? (
+                      <img src={blackSeatSvg} alt="whiteSeat" />
+                    ) : temp.includes(item + set) ? (
+                      <img src={blueSeatSvg} alt="blackSeat" />
+                    ) : (
+                      <img src={whiteSeatSvg} alt="blackSeat" />
+                    )}
+                  </div>
+                );
+              })}
+                </SeatStyle>
+          );
+        })}
       </article>
       <SeatButtonStyle onClick={ModalShow}>Confirm Booking</SeatButtonStyle>
       <ModelScreenStyle
