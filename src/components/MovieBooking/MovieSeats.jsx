@@ -8,10 +8,9 @@ import {
   SeatTableStyle,
   SeatButtonStyle,
   ModelScreenStyle,
-  DigitStyle,
+  ListStyle,
   SeatRowStyle,
 } from "../Styles/Seat.style";
-
 const digitArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const seats = {
   data: [
@@ -80,11 +79,11 @@ const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
   return (
     <SeatTableStyle>
       <article>
-        <DigitStyle>
+        <ListStyle>
           {digitArr.map((digit, index) => (
-            <article key={index}>{digit}</article>
+            <li key={index}>{digit}</li>
           ))}
-        </DigitStyle>
+        </ListStyle>
         {seats.data.map((item, step) => (
           <SeatStyle key={item + step}>
             <SeatRowStyle>{item.id}</SeatRowStyle>
