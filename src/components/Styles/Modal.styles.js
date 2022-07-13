@@ -5,8 +5,9 @@ export const ModelStyle = styled.article`
 height: 578px;
 width: 640px;
 position: absolute;
-left: 590px;
-top: 200px;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
 background: #FFFFFF;
 border-radius: 8px;
 text-align: center;
