@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import MovieModal from "./MovieModal";
 import whiteSeatSvg from "../Assets/whiteSeat.svg";
 import blueSeatSvg from "../Assets/blueSeat.svg";
@@ -18,7 +18,7 @@ const seatsData = {
 
 const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
   const [Visible, setVisible] = useState(false);
-  const [temp, setTemp] = useState([]);
+  const [selectSeats, setelectSeats] = useState([]);
   let propsData = {
     poster_path: poster_Path,
     Fun: setVisible,
@@ -33,11 +33,11 @@ const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
 
   const ModalShow = () => {
     setBackground(false);
-    if (temp.length === 0 || temp.length > 10) {
+    if (selectSeats.length === 0 || selectSeats.length > 10) {
       alert("please select the seats in range (1-10) ");
       setBackground(true);
     } else {
-      selectedSeat = selectedSeat + "," + temp;
+      selectedSeat = selectedSeat + "," + selectSeats;
       localStorage.setItem(MovieId, selectedSeat);
       selectedSeat = localStorage.getItem(MovieId);
       setVisible(true);
@@ -45,19 +45,17 @@ const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
   };
 
   const ClickHandel = (id) => {
-    if (temp.includes(id)) {
-      let newTemp = temp.filter((item) => {
+    if (selectSeats.includes(id)) {
+      let newSelectSeats = selectSeats.filter((item) => {
         return id !== item;
       });
-      setTemp(newTemp);
+      setTemp(newSelectSeats);
     } else {
-      setTemp((prvTemp) => [...prvTemp, id]);
+      setTemp((prvSelectSeats) => [...prvSelectSeats, id]);
     }
   };
 
-  useEffect(() => {
-    console.log("temp", temp);
-  }, [temp]);
+  
 
   return (
     <SeatTableStyle>
@@ -82,7 +80,7 @@ const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
                     {
                     selectedSeat.includes(item + set) ? (
                       <img src={blackSeatSvg} alt="whiteSeat" />
-                    ) : temp.includes(item + set) ? (
+                    ) : selectSeats.includes(item + set) ? (
                       <img src={blueSeatSvg} alt="blackSeat" />
                     ) : (
                       <img src={whiteSeatSvg} alt="blackSeat" />
@@ -98,7 +96,7 @@ const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
       <ModelScreenStyle
         style={Visible ? { pointerEvents: "auto" } : { pointerEvents: "none" }}
       >
-        {Visible ? <MovieModal temp={temp} propsData={propsData} /> : ""}
+        {Visible ? <MovieModal temp={selectSeats} propsData={propsData} /> : ""}
       </ModelScreenStyle>
     </SeatTableStyle>
   );
