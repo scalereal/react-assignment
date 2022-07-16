@@ -21,7 +21,7 @@ const MovieSeats = () => {
   const [visible, setVisible] = useState(false);
   const [selectSeats, setSelectSeats] = useState([]);
   let param = useParams();
-  
+
   let propsData = {
     selectSeatArray: selectSeats,
     visibleFun: setVisible,
@@ -45,13 +45,21 @@ const MovieSeats = () => {
   };
 
   const clickHandel = (id) => {
-    if (selectSeats.includes(id)) {
-      let newSelectSeats = selectSeats.filter((item) => {
-        return id !== item;
+    if (selectedSeat.includes(id)) {
+      alert("already selected");
+      let data = selectSeats.filter((mil) => {
+        return selectedSeat.includes(id) !== selectSeats[mil];
       });
-      setSelectSeats(newSelectSeats);
+      setSelectSeats(data);
     } else {
-      setSelectSeats((prvSelectSeats) => [...prvSelectSeats, id]);
+      if (selectSeats.includes(id)) {
+        let newSelectSeats = selectSeats.filter((item) => {
+          return id !== item;
+        });
+        setSelectSeats(newSelectSeats);
+      } else {
+        setSelectSeats((prvSelectSeats) => [...prvSelectSeats, id]);
+      }
     }
   };
 
@@ -70,20 +78,26 @@ const MovieSeats = () => {
               {seatsData.seat.map((set) => {
                 return (
                   <div
-                    key={set}
+                    key={item + set}
                     onClick={() => {
                       clickHandel(item + set);
                     }}
                   >
-                    {selectedSeat.includes(item + set) ? (
-                      <img src={blackSeatSvg} alt="blackSeat" />
-                    ) : selectSeats.includes(item + set) ? (
-                      <img src={blueSeatSvg} alt="blueSeat" />
-                    ) : (
-                      <img src={whiteSeatSvg} alt="whiteSeat" />
-                    )}
+                    {(() => {
+                      switch (selectedSeat.includes(item + set)) {
+                        case true:
+                          return <img src={blackSeatSvg} alt="blackSeat" />;
+                        default:
+                          switch (selectSeats.includes(item + set)) {
+                            case true:
+                              return <img src={blueSeatSvg} alt="blueSeat" />;
+                            default:
+                              return <img src={whiteSeatSvg} alt="whiteSeat" />;
+                          }
+                      }
+                    })()}
                   </div>
-                )
+                );
               })}
             </SeatStyle>
           );
