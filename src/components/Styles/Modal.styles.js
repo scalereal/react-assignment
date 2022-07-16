@@ -1,24 +1,22 @@
 import styled from "styled-components";
 
-
 export const ModelScreenStyle = styled.article`
   top: 0;
-  width: 100vw;
+  left: 0;
   height: 100vh;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
-` 
+`;
 export const ModelStyle = styled.article`
   height: 578px;
   width: 640px;
-  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   background: #ffffff;
   border-radius: 8px;
   text-align: center;
-  background-color: " #FFFFFF";
   z-index: 2;
   position: fixed;
 `;
@@ -48,7 +46,7 @@ export const ImageStyles = styled.img`
   height: 327px;
   border-radius: 20px;
 `;
-export const ModeldataFlex = styled.article`
+export const ModelDataFlex = styled.article`
   display: flex;
   justify-content: space-around;
 `;
