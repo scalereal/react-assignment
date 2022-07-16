@@ -1,61 +1,59 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import MovieModal from "./MovieModal";
 import whiteSeatSvg from "../Assets/whiteSeat.svg";
 import blueSeatSvg from "../Assets/blueSeat.svg";
 import blackSeatSvg from "../Assets/BlackSeat.svg";
+import { useParams } from "react-router-dom";
+
 import {
   SeatStyle,
   SeatTableStyle,
   SeatButtonStyle,
-  ModelScreenStyle,
   ListStyle,
   SeatRowStyle,
 } from "../Styles/Seat.style";
-const seatsData = {
-    id: ["A", "B", "C", "D"],
-    seat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  };
 
-const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
-  const [Visible, setVisible] = useState(false);
-  const [selectSeats, setelectSeats] = useState([]);
+const seatsData = {
+  id: ["A", "B", "C", "D"],
+  seat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+};
+const MovieSeats = () => {
+  const [visible, setVisible] = useState(false);
+  const [selectSeats, setSelectSeats] = useState([]);
+  let param = useParams();
+  
   let propsData = {
-    poster_path: poster_Path,
-    Fun: setVisible,
-    tempFun: setTemp,
-    setBackgroundFun: setBackground,
+    selectSeatArray: selectSeats,
+    visibleFun: setVisible,
+    selectSeatFun: setSelectSeats,
   };
 
   let selectedSeat = [];
-  if (JSON.stringify(localStorage.getItem(MovieId)) !== "null") {
-    selectedSeat = localStorage.getItem(MovieId);
+  if (JSON.stringify(localStorage.getItem(param.id)) !== "null") {
+    selectedSeat = localStorage.getItem(param.id);
   }
 
   const ModalShow = () => {
-    setBackground(false);
     if (selectSeats.length === 0 || selectSeats.length > 10) {
       alert("please select the seats in range (1-10) ");
-      setBackground(true);
     } else {
-      selectedSeat = selectedSeat + "," + selectSeats;
-      localStorage.setItem(MovieId, selectedSeat);
-      selectedSeat = localStorage.getItem(MovieId);
+      selectedSeat = selectedSeat + selectSeats;
+      localStorage.setItem(param.id, selectedSeat);
+      selectedSeat = localStorage.getItem(param.id);
       setVisible(true);
     }
   };
 
-  const ClickHandel = (id) => {
+  const clickHandel = (id) => {
     if (selectSeats.includes(id)) {
       let newSelectSeats = selectSeats.filter((item) => {
         return id !== item;
       });
-      setTemp(newSelectSeats);
+      setSelectSeats(newSelectSeats);
     } else {
-      setTemp((prvSelectSeats) => [...prvSelectSeats, id]);
+      setSelectSeats((prvSelectSeats) => [...prvSelectSeats, id]);
     }
   };
-
-  
 
   return (
     <SeatTableStyle>
@@ -74,30 +72,25 @@ const MovieSeats = ({ setBackground, poster_Path, MovieId }) => {
                   <div
                     key={set}
                     onClick={() => {
-                      ClickHandel(item + set);
+                      clickHandel(item + set);
                     }}
                   >
-                    {
-                    selectedSeat.includes(item + set) ? (
-                      <img src={blackSeatSvg} alt="whiteSeat" />
+                    {selectedSeat.includes(item + set) ? (
+                      <img src={blackSeatSvg} alt="blackSeat" />
                     ) : selectSeats.includes(item + set) ? (
-                      <img src={blueSeatSvg} alt="blackSeat" />
+                      <img src={blueSeatSvg} alt="blueSeat" />
                     ) : (
-                      <img src={whiteSeatSvg} alt="blackSeat" />
+                      <img src={whiteSeatSvg} alt="whiteSeat" />
                     )}
                   </div>
-                );
+                )
               })}
-                </SeatStyle>
+            </SeatStyle>
           );
         })}
       </article>
       <SeatButtonStyle onClick={ModalShow}>Confirm Booking</SeatButtonStyle>
-      <ModelScreenStyle
-        style={Visible ? { pointerEvents: "auto" } : { pointerEvents: "none" }}
-      >
-        {Visible ? <MovieModal temp={selectSeats} propsData={propsData} /> : ""}
-      </ModelScreenStyle>
+      {visible && <MovieModal propsData={propsData} />}
     </SeatTableStyle>
   );
 };
