@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const SeatMainDivStyle = styled.main`
-  
   background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 46px;
 `;
 
 export const SeatImgStyle = styled.img`
   width: 1082px;
   height: 129px;
-  margin: 46px auto 75px auto;
 `;
 export const SeatTableStyle = styled.article`
   margin: 75px auto 304px auto;
@@ -24,8 +23,7 @@ export const SeatRowStyle = styled.article`
   font-family: "Inter";
   font-style: normal;
   text-align: center;
-  padding-right: 59px;
-  padding-top: 20px;
+  padding-top: 25px;
   font-weight: 400;
   font-size: 48px;
 `;
@@ -35,6 +33,7 @@ export const ListStyle = styled.ol`
   display: flex;
   justify-content: space-evenly;
   li {
+    text-align: center;
     width: 23px;
     height: 58px;
     font-family: "Inter";
@@ -56,4 +55,8 @@ export const SeatButtonStyle = styled.button`
   margin: 125px 450px 152px 450px;
 `;
 
+export const SeatListStyle= styled.ol`
+display: flex;
+list-style: none;
+`
 
