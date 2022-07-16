@@ -11,6 +11,7 @@ import {
   SeatButtonStyle,
   ListStyle,
   SeatRowStyle,
+  SeatListStyle,
 } from "../Styles/Seat.style";
 
 const seatsData = {
@@ -75,9 +76,10 @@ const MovieSeats = () => {
           return (
             <SeatStyle key={item}>
               <SeatRowStyle>{item}</SeatRowStyle>
+              <SeatListStyle>
               {seatsData.seat.map((set) => {
                 return (
-                  <div
+                  <li 
                     key={item + set}
                     onClick={() => {
                       clickHandel(item + set);
@@ -96,9 +98,11 @@ const MovieSeats = () => {
                           }
                       }
                     })()}
-                  </div>
+                  </li>
+                
                 );
               })}
+              </SeatListStyle>
             </SeatStyle>
           );
         })}
