@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import PNF from "./PNF";
 import { CardDivStyle } from "../Styles/Card.style";
-
-
-const API_KEY = "api_key=336ff2d06750b1a068e736a78e81d04f";
-const BASE_URL = "https://api.themoviedb.org/3";
-const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
-
-const searchURL = BASE_URL + "/search/movie?" + API_KEY + "&query=";
+import { apiUrl, searchUrl } from "../ constants/global";
 
 const MovieCard = ({ input }) => {
   const [data, setData] = useState([]);
@@ -18,13 +12,12 @@ const MovieCard = ({ input }) => {
     const resResults = await res.json();
     const result = resResults.results;
     setData(result);
-    
   };
   useEffect(() => {
     if (input.length === 0) {
-      getMovie(API_URL);
+      getMovie(apiUrl);
     } else {
-      getMovie(searchURL + input);
+      getMovie(searchUrl + input);
     }
   }, [input]);
   return (
