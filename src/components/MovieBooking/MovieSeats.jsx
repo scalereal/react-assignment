@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import MovieModal from "./MovieModal";
-import whiteSeatSvg from "../Assets/whiteSeat.svg";
-import blueSeatSvg from "../Assets/blueSeat.svg";
-import blackSeatSvg from "../Assets/BlackSeat.svg";
 import { useParams } from "react-router-dom";
-
+import SvgImg from '../Assets/SvgImg'
 import {
   SeatStyle,
   SeatTableStyle,
@@ -88,13 +85,13 @@ const MovieSeats = () => {
                     {(() => {
                       switch (selectedSeat.includes(item + set)) {
                         case true:
-                          return <img src={blackSeatSvg} alt="blackSeat" />;
+                          return <SvgImg colorName="#626262" />
                         default:
                           switch (selectSeats.includes(item + set)) {
                             case true:
-                              return <img src={blueSeatSvg} alt="blueSeat" />;
+                              return <SvgImg colorName="#724FD8" />
                             default:
-                              return <img src={whiteSeatSvg} alt="whiteSeat" />;
+                              return <SvgImg colorName="#DADADA" />
                           }
                       }
                     })()}
