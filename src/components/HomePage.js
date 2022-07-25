@@ -53,7 +53,7 @@ function HomePage(){
       {movies.length > 0 ? (
         <Cards>
           {movies.map((movie) =>
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key = {movie.id}/>
           )}
         </Cards>
       ) : (

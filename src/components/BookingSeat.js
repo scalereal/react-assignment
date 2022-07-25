@@ -90,12 +90,12 @@ function BookingSeat() {
         <tbody>
           {data.id.map((id) => {
             return (
-              <>
+              <React.Fragment key ={id}>
                 <tr>
                   <SeatRow>{id}</SeatRow>
                   {data.seats.map((_, index) => {
                     return (
-                      <>
+                      <React.Fragment key ={index}>
                         <td
                           key={id + index}
                           onClick={() => handleSeats(id + (index + 1))}
@@ -108,11 +108,11 @@ function BookingSeat() {
                             <img src={seatWhite} alt="white" />
                           )}
                         </td>
-                      </>
+                      </React.Fragment>
                     );
                   })}
                 </tr>
-              </>
+              </React.Fragment>
             );
           })}
         </tbody>
