@@ -38,7 +38,7 @@ h3{
     text-align:center;
    z-index: 2;
    opacity:0;
- width: 111px;
+  width: 111px;
   height: 56px;
   overflow: hidden;
   white-space: wrap;
@@ -101,7 +101,7 @@ img {
 
     }
 
-
+}
 @media(max-width:768px){
     margin: 24px auto 24px auto;
 
