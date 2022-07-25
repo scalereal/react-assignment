@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
-import img from "../Asset/undraw.png";
+
 import { Container } from "../styles/Container.styled";
 import GlobalStyles from "../styles/GlobalStyles";
 import { Cards } from "../styles/Cards.styled"
-import { Empty } from "../styles/Empty.styles";
+import PageNotFound from "./PageNotFound";
+
 
 const key = 'api_key=06431b5693dfdfb9f2a94311f7d8cbf0';
 const baseUrl = "https://api.themoviedb.org/3";
@@ -56,10 +57,7 @@ function HomePage(){
           )}
         </Cards>
       ) : (
-        <Empty>
-          <h2>Sorry, there is no result for keyword you searched.</h2>
-          <img src={img} alt="no img found" />
-        </Empty>
+        <PageNotFound/>
       )}
 
 
