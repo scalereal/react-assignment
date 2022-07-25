@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "./Modal";
-import seatWhite from "../Asset/SeatWhite.svg";
-import seatBlue from "../Asset/SeatBlue.svg";
-import seatBlack from "../Asset/SeatBlack.svg";
+import SvgImg from '../Asset/SvgImg'
 import vector from "../Asset/Vector 1.png";
 import {
   BookingStyles,
@@ -94,14 +92,20 @@ function BookingSeat() {
                         <td
                           key={id + index}
                           onClick={() => handleSeats(id + (index + 1))}
-                        >
-                          {selected.includes(id + (index + 1)) ? (
-                            <img src={seatBlack} alt="black" />
-                          ) : selectedSeats.includes(id + (index + 1)) ? (
-                            <img src={seatBlue} alt="blue" />
-                          ) : (
-                            <img src={seatWhite} alt="white" />
-                          )}
+                        >{(() => {
+                          switch (selected.includes(id +(index+1))) {
+                            case true:
+                              return <SvgImg colorName="#626262" />
+                            default:
+                              switch (selectedSeats.includes(id+(index+1))) {
+                                case true:
+                                  return <SvgImg colorName="#724FD8" />
+                                default:
+                                  return <SvgImg colorName="#DADADA" />
+                              }
+                          }
+                        })()}
+                        
                         </td>
                       </React.Fragment>
                     );
