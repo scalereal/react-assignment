@@ -93,7 +93,7 @@ function BookingSeat() {
               <>
                 <tr>
                   <SeatRow>{id}</SeatRow>
-                  {data.seats.map((seat, index) => {
+                  {data.seats.map((_, index) => {
                     return (
                       <>
                         <td
