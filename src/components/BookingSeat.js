@@ -122,7 +122,7 @@ function BookingSeat() {
       <article
         style={bgClick ? { pointerEvents: "none" } : { pointerEvents: "auto" }}
       >
-        {modalVisible ? (
+        {modalVisible && (
           <Modal
             location={location}
             setVisible={setModalVisible}
@@ -130,8 +130,6 @@ function BookingSeat() {
             setSelectedSeats={setSelectedSeats}
             setBgClick={setBgClick}
           />
-        ) : (
-          ""
         )}
       </article>
     </BookingStyles>
