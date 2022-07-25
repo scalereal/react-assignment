@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Modal from "./Modal";
 import seatWhite from "../Asset/SeatWhite.svg";
 import seatBlue from "../Asset/SeatBlue.svg";
@@ -22,11 +22,12 @@ function BookingSeat() {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [bgClick, setBgClick] = useState(true);
 
-  const location = useLocation();
+  let param = useParams();
+
   let selected = [];
 
-  if (JSON.stringify(localStorage.getItem(location.state.movieId)) !== "null") {
-    selected = localStorage.getItem(location.state.movieId);
+  if (JSON.stringify(localStorage.getItem(param.id)) !== "null") {
+    selected = localStorage.getItem(param.id);
   }
 
   const modalHandle = () => {
@@ -47,7 +48,7 @@ function BookingSeat() {
       return;
     }
     selected = selected + selectedSeats + ",";
-    localStorage.setItem(location.state.movieId, selected);
+    localStorage.setItem(param.id, selected);
   };
 
   function handleSeats(id) {
@@ -118,7 +119,6 @@ function BookingSeat() {
       >
         {modalVisible && (
           <Modal
-            location={location}
             setVisible={setModalVisible}
             selectedSeats={selectedSeats}
             setSelectedSeats={setSelectedSeats}

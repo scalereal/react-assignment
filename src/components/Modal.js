@@ -16,9 +16,10 @@ import {
 } from "../styles/Booking.styled";
 
 import close from "../Asset/Xclose.png";
+import { useParams } from "react-router";
+const imgUrl = "https://image.tmdb.org/t/p/w500/";
 export default function Modal({
   setVisible,
-  location,
   selectedSeats,
   setSelectedSeats,
   setBgClick,
@@ -28,7 +29,7 @@ export default function Modal({
     setSelectedSeats([]);
     setBgClick(true);
   };
-
+   const param =useParams();
   return (
     <ModalScreen>
     <ModalStyle>
@@ -36,7 +37,7 @@ export default function Modal({
       <ModalH1>Thank you for booking</ModalH1>
       <ModalH3>Order Summary</ModalH3>
       <ModalDiv>
-        <MoviePic src={location.state.movie} alt="movie" />
+        <MoviePic src={ imgUrl+param.path} alt="movie" />
 
         <article>
           <h3>Seats:</h3>
