@@ -6,12 +6,8 @@ import { Container } from "../styles/Container.styled";
 import GlobalStyles from "../styles/GlobalStyles";
 import { Cards } from "../styles/Cards.styled"
 import PageNotFound from "./PageNotFound";
+import {apiUrl,searchUrl} from "./constants/Global"
 
-
-const key = 'api_key=06431b5693dfdfb9f2a94311f7d8cbf0';
-const baseUrl = "https://api.themoviedb.org/3";
-const apiUrl = `${baseUrl}/discover/movie?sort_by=popularity.desc&${key}`;
-const searchUrl = `${baseUrl}/search/movie?${key}`;
 
 function HomePage(){
   const [movies, setMovies] = useState([]);

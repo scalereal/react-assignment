@@ -29,58 +29,54 @@ export default function Modal({
     setSelectedSeats([]);
     setBgClick(true);
   };
-   const param =useParams();
+  const param = useParams();
   return (
     <ModalScreen>
-    <ModalStyle>
-      <CloseButton onClick={modalClose} src={close} alt="close" />
-      <ModalH1>Thank you for booking</ModalH1>
-      <ModalH3>Order Summary</ModalH3>
-      <ModalDiv>
-        <MoviePic src={ imgUrl+param.path} alt="movie" />
+      <ModalStyle>
+        <CloseButton onClick={modalClose} src={close} alt="close" />
+        <ModalH1>Thank you for booking</ModalH1>
+        <ModalH3>Order Summary</ModalH3>
+        <ModalDiv>
+          <MoviePic src={imgUrl + param.path} alt="movie" />
 
-        <article>
-          <h3>Seats:</h3>
-          <ModalDivSeat>
-            {selectedSeats.map((seat, index) => {
-              return (
-                <ModalSeatH1 key={index}>
-                  {seat}
-                </ModalSeatH1>
-              );
-            })}
-          </ModalDivSeat>
-          <DataFlex>
-            <article>
-              <ModalH5>{selectedSeats.length}*250</ModalH5>
-              <br />
-              <ModalSmall>CGST(12%)</ModalSmall>
-              <br />
-              <ModalSmall>SGST(12%)</ModalSmall>
-            </article>
-            <article >
-              <ModalH5>{selectedSeats.length * 250}</ModalH5>
-              <br />
-              <ModalSmall>
-                {12 * (1 / 100) * (selectedSeats.length * 250)}
-              </ModalSmall>
-              <br />
-              <ModalSmall>
-                {12 * (1 / 100) * (selectedSeats.length * 250)}
-              </ModalSmall>
-            </article>
-          </DataFlex>
-          <hr />
-          <DataFlex>
-            <ModalH5>Total</ModalH5>
-            <ModalH5>
-              {selectedSeats.length * 250 +
-                12 * (1 / 100) * (selectedSeats.length * 250) * 2}
-            </ModalH5>
-          </DataFlex>
-        </article>
-      </ModalDiv>
-    </ModalStyle>
+          <article>
+            <h3>Seats:</h3>
+            <ModalDivSeat>
+              {selectedSeats.map((seat, index) => {
+                return <ModalSeatH1 key={index}>{seat}</ModalSeatH1>;
+              })}
+            </ModalDivSeat>
+            <DataFlex>
+              <article>
+                <ModalH5>{selectedSeats.length}*250</ModalH5>
+                <br />
+                <ModalSmall>CGST(12%)</ModalSmall>
+                <br />
+                <ModalSmall>SGST(12%)</ModalSmall>
+              </article>
+              <article>
+                <ModalH5>{selectedSeats.length * 250}</ModalH5>
+                <br />
+                <ModalSmall>
+                  {12 * (1 / 100) * (selectedSeats.length * 250)}
+                </ModalSmall>
+                <br />
+                <ModalSmall>
+                  {12 * (1 / 100) * (selectedSeats.length * 250)}
+                </ModalSmall>
+              </article>
+            </DataFlex>
+            <hr />
+            <DataFlex>
+              <ModalH5>Total</ModalH5>
+              <ModalH5>
+                {selectedSeats.length * 250 +
+                  12 * (1 / 100) * (selectedSeats.length * 250) * 2}
+              </ModalH5>
+            </DataFlex>
+          </article>
+        </ModalDiv>
+      </ModalStyle>
     </ModalScreen>
   );
 }
