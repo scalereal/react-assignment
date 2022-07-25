@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Card = styled.article`
-position: relative;
+  position: relative;
 
-&::after {
-    content: '';
+  &::after {
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -18,13 +18,13 @@ position: relative;
     background-color: #626262;
   }
 
-&:hover button {
-    opacity:1;
-}
-&:hover h3 {
-    opacity :1;
-}
-h3{
+  &:hover button {
+    opacity: 1;
+  }
+  &:hover h3 {
+    opacity: 1;
+  }
+  h3 {
     position: absolute;
     left: 31.43%;
     right: 31.43%;
@@ -35,27 +35,24 @@ h3{
     font-weight: 600;
     color: #ffffff;
 
-    text-align:center;
-   z-index: 2;
-   opacity:0;
-  width: 111px;
-  height: 56px;
-  overflow: hidden;
-  white-space: wrap;
-  text-overflow: ellipsis;
-}
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    width: 111px;
+    height: 56px;
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+  }
 
-img{
+  img {
     height: 374px;
     width: 350px;
     border-radius: 20px;
     box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.25);
- 
-}
+  }
 
-
-
-button{
+  button {
     position: absolute;
     left: 29.43%;
     right: 29.14%;
@@ -63,56 +60,53 @@ button{
     bottom: 11.76%;
     height: 43px;
     width: 145px;
-    background-color: #352C9A;
+    background-color: #352c9a;
     color: #ffffff;
     font-family: "Rubik";
     font-size: 16px;
     font-weight: 500;
-
-    z-index:2;
-    opacity:0;
-}
-button:hover {
+    border-style: none;
+    z-index: 2;
+    opacity: 0;
+  }
+  button:hover {
     background-color: #724fd8;
-}
+  }
 
-button:active {
+  button:active {
     background-color: #724fdf;
     text-decoration: underline;
-}
+  }
 
-button:disabled {
+  button:disabled {
     background-color: #626262;
-}
-@media(max-width:1200px) {
+  }
+  @media (max-width: 1200px) {
     margin: 24px auto 24px auto;
-    
-img {
-        width: 300px;
-        height: 320px;
+
+    img {
+      width: 300px;
+      height: 320px;
     }
 
     button {
-        height: 37px;
-        width: 124px;
-        left: 88px;
-        top: 246px;
-        border-radius: 0px;
-
+      height: 37px;
+      width: 124px;
+      left: 88px;
+      top: 246px;
+      border-radius: 0px;
     }
-
-}
-@media(max-width:768px){
+  }
+  @media (max-width: 768px) {
     margin: 24px auto 24px auto;
 
-img{
-    height: 320px;
-    width: 300px;
-}
-button{
-    Width: 124.29px;
-    Height: 36.79px;
-}
-}
-
+    img {
+      height: 320px;
+      width: 300px;
+    }
+    button {
+      width: 124.29px;
+      height: 36.79px;
+    }
+  }
 `;

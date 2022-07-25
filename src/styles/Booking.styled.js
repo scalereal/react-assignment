@@ -99,3 +99,26 @@ display: flex;
 justify-content: space-between;
 margin: 0px;
 `
+export const ModalDiv = styled.article`
+display: flex;
+justify-content: space-around;
+margin-top: 48px;
+
+`
+export const ModalDivSeat = styled.article`
+display:flex;
+height:47px;
+width:202px;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+
+`
+export const ModalSeatH1 = styled.h1`
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+text-align: center;
+margin:0px;
+`
