@@ -12,6 +12,7 @@ import {
   ModalDiv,
   ModalDivSeat,
   ModalSeatH1,
+  ModalScreen,
 } from "../styles/Booking.styled";
 
 import close from "../Asset/Xclose.png";
@@ -29,6 +30,7 @@ export default function Modal({
   };
 
   return (
+    <ModalScreen>
     <ModalStyle>
       <CloseButton onClick={modalClose} src={close} alt="close" />
       <ModalH1>Thank you for booking</ModalH1>
@@ -42,7 +44,7 @@ export default function Modal({
             {selectedSeats.map((seat, index) => {
               return (
                 <ModalSeatH1 key={index}>
-                  {seat},
+                  {seat}
                 </ModalSeatH1>
               );
             })}
@@ -78,5 +80,6 @@ export default function Modal({
         </article>
       </ModalDiv>
     </ModalStyle>
+    </ModalScreen>
   );
 }

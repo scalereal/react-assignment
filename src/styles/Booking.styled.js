@@ -49,8 +49,9 @@ position: absolute;
 width: 640px;
 height: 578px;
 background-color: #ffffff;
-top: 300px;
-left: 500px;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
 border-radius: 8px;
 `
 export const CloseButton = styled.img`
@@ -121,4 +122,12 @@ font-weight: 600;
 font-size: 40px;
 text-align: center;
 margin:0px;
+`
+export const ModalScreen =styled.article`
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
 `

@@ -59,16 +59,10 @@ function BookingSeat() {
     }
   }
 
-  const bgDisplay = {
-    pointerEvents: "none",
-    backgroundColor: " rgba(229, 229, 229, 0.6)",
-  };
-  const bgColor = {
-    backgroundColor: "white",
-  };
+  
 
   return (
-    <BookingStyles style={bgClick ? bgColor : bgDisplay}>
+    <BookingStyles >
       <VectorImg src={vector} alt="vector" />
 
       <BookingTableSeats>
