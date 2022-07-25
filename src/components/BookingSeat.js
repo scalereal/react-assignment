@@ -23,7 +23,6 @@ function BookingSeat() {
   const [bgClick, setBgClick] = useState(true);
 
   const location = useLocation();
-  // console.log(location)
   let selected = [];
 
   if (JSON.stringify(localStorage.getItem(location.state.movieId)) !== "null") {
