@@ -22,12 +22,10 @@ export default function Modal({
   setVisible,
   selectedSeats,
   setSelectedSeats,
-  setBgClick,
 }) {
   const modalClose = () => {
     setVisible(false);
     setSelectedSeats([]);
-    setBgClick(true);
   };
   const param = useParams();
   return (

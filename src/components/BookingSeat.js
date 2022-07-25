@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "./Modal";
-import SvgImg from '../Asset/SvgImg'
+import SvgImg from "../Asset/SvgImg";
 import vector from "../Asset/Vector 1.png";
 import {
   BookingStyles,
@@ -18,7 +18,6 @@ const data = {
 function BookingSeat() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedSeats, setSelectedSeats] = useState([]);
-  const [bgClick, setBgClick] = useState(true);
 
   let param = useParams();
 
@@ -30,23 +29,24 @@ function BookingSeat() {
 
   const modalHandle = () => {
     setModalVisible(true);
-    setBgClick(false);
-
-    if (selectedSeats.length === 0) {
-      setModalVisible(false);
-      alert(" Please select seats first");
-      setBgClick(true);
-      return;
-    } else if (selectedSeats.length > 10) {
-      setModalVisible(false);
-      alert(`you can't select more than 10 seats.. 
-      you have selected ${selectedSeats.length} seats.
-      Please deselect ${selectedSeats.length - 10} seats`);
-      setBgClick(true);
-      return;
+    switch (selectedSeats.length > 10) {
+      case true:
+        setModalVisible(false);
+        alert(`you can't select more than 10 seats.. 
+   you have selected ${selectedSeats.length} seats.
+    Please deselect ${selectedSeats.length - 10} seats`);
+        break;
+      default:
+        switch (selectedSeats.length) {
+          case 0:
+            setModalVisible(false);
+            alert(" Please select seats first");
+            break;
+          default:
+            selected = selected + selectedSeats + ",";
+            localStorage.setItem(param.id, selected);
+        }
     }
-    selected = selected + selectedSeats + ",";
-    localStorage.setItem(param.id, selected);
   };
 
   function handleSeats(id) {
@@ -58,10 +58,8 @@ function BookingSeat() {
     }
   }
 
-  
-
   return (
-    <BookingStyles >
+    <BookingStyles>
       <VectorImg src={vector} alt="vector" />
 
       <BookingTableSeats>
@@ -83,29 +81,31 @@ function BookingSeat() {
         <tbody>
           {data.id.map((id) => {
             return (
-              <React.Fragment key ={id}>
+              <React.Fragment key={id}>
                 <tr>
                   <SeatRow>{id}</SeatRow>
                   {data.seats.map((_, index) => {
                     return (
-                      <React.Fragment key ={index}>
+                      <React.Fragment key={index}>
                         <td
                           key={id + index}
                           onClick={() => handleSeats(id + (index + 1))}
-                        >{(() => {
-                          switch (selected.includes(id +(index+1))) {
-                            case true:
-                              return <SvgImg colorName="#626262" />
-                            default:
-                              switch (selectedSeats.includes(id+(index+1))) {
-                                case true:
-                                  return <SvgImg colorName="#724FD8" />
-                                default:
-                                  return <SvgImg colorName="#DADADA" />
-                              }
-                          }
-                        })()}
-                        
+                        >
+                          {(() => {
+                            switch (selected.includes(id + (index + 1))) {
+                              case true:
+                                return <SvgImg colorName="#626262" />;
+                              default:
+                                switch (
+                                  selectedSeats.includes(id + (index + 1))
+                                ) {
+                                  case true:
+                                    return <SvgImg colorName="#724FD8" />;
+                                  default:
+                                    return <SvgImg colorName="#DADADA" />;
+                                }
+                            }
+                          })()}
                         </td>
                       </React.Fragment>
                     );
@@ -118,15 +118,12 @@ function BookingSeat() {
       </BookingTableSeats>
 
       <ConfirmButton onClick={modalHandle}>Confirm booking</ConfirmButton>
-      <article
-        style={bgClick ? { pointerEvents: "none" } : { pointerEvents: "auto" }}
-      >
+      <article>
         {modalVisible && (
           <Modal
             setVisible={setModalVisible}
             selectedSeats={selectedSeats}
             setSelectedSeats={setSelectedSeats}
-            setBgClick={setBgClick}
           />
         )}
       </article>
