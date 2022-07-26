@@ -3,7 +3,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 
 import { Container } from "../styles/Container.styled";
-import GlobalStyles from "../styles/GlobalStyles";
+import GlobalStyles from "../styles/Global.styled";
 import { Cards } from "../styles/Cards.styled"
 import PageNotFound from "./PageNotFound";
 import {apiUrl,searchUrl} from "./constants/Global"
