@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "./Modal";
-import SvgImg from "../Asset/SvgImg";
 import vector from "../Asset/Vector 1.png";
-import { data } from "./constants/Global";
 import {
   BookingStyles,
   VectorImg,
   ConfirmButton,
-  BookingTableSeats,
-  SeatRow,
-} from "../styles/Booking.styled";
+ } from "../styles/Booking.styled";
+import MovieSeats from "./MovieSeats";
 
 function BookingSeat() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   let param = useParams();
-
   let selected = [];
 
   if (JSON.stringify(localStorage.getItem(param.id)) !== "null") {
@@ -30,8 +26,8 @@ function BookingSeat() {
       case true:
         setModalVisible(false);
         alert(`you can't select more than 10 seats.. 
-   you have selected ${selectedSeats.length} seats.
-    Please deselect ${selectedSeats.length - 10} seats`);
+             you have selected ${selectedSeats.length} seats.
+             Please deselect ${selectedSeats.length - 10} seats`);
         break;
       default:
         switch (selectedSeats.length) {
@@ -46,75 +42,14 @@ function BookingSeat() {
     }
   };
 
-  function handleSeats(id) {
-    if (selectedSeats.includes(id)) {
-      const updatedSeats = selectedSeats.filter((seatId) => seatId !== id);
-      setSelectedSeats(updatedSeats);
-    } else {
-      setSelectedSeats((prevSeats) => [...prevSeats, id]);
-    }
-  }
-
   return (
     <BookingStyles>
       <VectorImg src={vector} alt="vector" />
-
-      <BookingTableSeats>
-        <thead>
-          <tr>
-            <th> </th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.id.map((id) => {
-            return (
-              <React.Fragment key={id}>
-                <tr>
-                  <SeatRow>{id}</SeatRow>
-                  {data.seats.map((_, index) => {
-                    return (
-                      <React.Fragment key={index}>
-                        <td
-                          key={id + index}
-                          onClick={() => handleSeats(id + (index + 1))}
-                        >
-                          {(() => {
-                            switch (selected.includes(id + (index + 1))) {
-                              case true:
-                                return <SvgImg colorName="#626262" />;
-                              default:
-                                switch (
-                                  selectedSeats.includes(id + (index + 1))
-                                ) {
-                                  case true:
-                                    return <SvgImg colorName="#724FD8" />;
-                                  default:
-                                    return <SvgImg colorName="#DADADA" />;
-                                }
-                            }
-                          })()}
-                        </td>
-                      </React.Fragment>
-                    );
-                  })}
-                </tr>
-              </React.Fragment>
-            );
-          })}
-        </tbody>
-      </BookingTableSeats>
-
-      <ConfirmButton onClick={modalHandle}>Confirm booking</ConfirmButton>
+     <MovieSeats selectedSeats ={selectedSeats} 
+     selected ={selected} 
+     setSelectedSeats={setSelectedSeats}
+     />
+     <ConfirmButton onClick={modalHandle}>Confirm booking</ConfirmButton>
       <article>
         {modalVisible && (
           <Modal
