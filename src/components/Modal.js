@@ -18,11 +18,7 @@ import {
 import close from "../Asset/Xclose.png";
 import { useParams } from "react-router";
 const imgUrl = "https://image.tmdb.org/t/p/w500/";
-export default function Modal({
-  setVisible,
-  selectedSeats,
-  setSelectedSeats,
-}) {
+export default function Modal({ setVisible, selectedSeats, setSelectedSeats }) {
   const modalClose = () => {
     setVisible(false);
     setSelectedSeats([]);
@@ -40,9 +36,7 @@ export default function Modal({
           <article>
             <h3>Seats:</h3>
             <ModalDivSeat>
-              {selectedSeats.map((seat, index) => {
-                return <ModalSeatH1 key={index}>{seat}</ModalSeatH1>;
-              })}
+              <ModalSeatH1>{selectedSeats.toString()}</ModalSeatH1>
             </ModalDivSeat>
             <DataFlex>
               <article>

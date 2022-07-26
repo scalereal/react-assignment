@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Modal from "./Modal";
 import SvgImg from "../Asset/SvgImg";
 import vector from "../Asset/Vector 1.png";
+import { data } from "./constants/Global";
 import {
   BookingStyles,
   VectorImg,
@@ -10,10 +11,6 @@ import {
   BookingTableSeats,
   SeatRow,
 } from "../styles/Booking.styled";
-const data = {
-  id: ["A", "B", "C", "D"],
-  seats: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-};
 
 function BookingSeat() {
   const [modalVisible, setModalVisible] = useState(false);
