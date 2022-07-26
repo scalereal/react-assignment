@@ -34,7 +34,6 @@ export const Card = styled.article`
     font-size: 24px;
     font-weight: 600;
     color: #ffffff;
-
     text-align: center;
     z-index: 2;
     opacity: 0;
