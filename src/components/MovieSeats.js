@@ -5,11 +5,19 @@ import SvgImg from "../Asset/SvgImg";
 
 const MovieSeats = ({ selectedSeats, selected, setSelectedSeats }) => {
   function handleSeats(id) {
-    if (selectedSeats.includes(id)) {
-      const updatedSeats = selectedSeats.filter((seatId) => seatId !== id);
-      setSelectedSeats(updatedSeats);
+    if (selected.includes(id)) {
+      alert("already selected");
+      let data = selectedSeats.filter((item) => {
+        return selected.includes(id) !== selectedSeats[item];
+      });
+      setSelectedSeats(data);
     } else {
-      setSelectedSeats((prevSeats) => [...prevSeats, id]);
+      if (selectedSeats.includes(id)) {
+        const updatedSeats = selectedSeats.filter((seatId) => seatId !== id);
+        setSelectedSeats(updatedSeats);
+      } else {
+        setSelectedSeats((prevSeats) => [...prevSeats, id]);
+      }
     }
   }
   return (
@@ -17,16 +25,9 @@ const MovieSeats = ({ selectedSeats, selected, setSelectedSeats }) => {
       <thead>
         <tr>
           <th> </th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
+          {data.seats.map((seatno) => (
+            <th key={seatno}>{seatno}</th>
+          ))}
         </tr>
       </thead>
       <tbody>

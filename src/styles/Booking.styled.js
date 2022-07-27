@@ -42,7 +42,7 @@ font-size: 48px;
 padding-right:59px;
 `
 
-// modal designs
+
 
 export const ModalStyle = styled.article`
 position: absolute;
@@ -73,6 +73,7 @@ font-style: normal;
 font-weight: 600;
 font-size: 40px;
 text-align: center;
+margin:40px 0;
 `
 export const ModalH3 = styled.h3`
 font-family: 'Rubik';
@@ -104,6 +105,7 @@ export const ModalDiv = styled.article`
 display: flex;
 justify-content: space-around;
 margin-top: 48px;
+margin-bottom: 20px;
 
 `
 export const ModalDivSeat = styled.article`

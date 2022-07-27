@@ -38,6 +38,7 @@ function BookingSeat() {
           default:
             selected = selected + selectedSeats + ",";
             localStorage.setItem(param.id, selected);
+            selected = localStorage.getItem(param.id)
         }
     }
   };
