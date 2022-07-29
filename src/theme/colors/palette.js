@@ -4,4 +4,5 @@ export const colors = {
     brandWhite: "#FFFFFF",
     brandAccent: "#724FD8",
     brandMute: "#626262",
+    brandOffGray: "#DADADA",
 };
