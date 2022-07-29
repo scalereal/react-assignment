@@ -1,5 +1,13 @@
 import React from "react";
+import { Text } from "@components";
 
 export default function App() {
-  return <h1>Hello world!</h1>
+    const handleClick = (event) => {
+        console.log(event);
+    };
+    return (
+        <Text textVariant="display1" onClick={handleClick}>
+            Hello world!
+        </Text>
+    );
 }
