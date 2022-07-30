@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Seat, Button, SearchForm } from "@components";
+import { Text, Seat, Button, SearchForm, MovieCard } from "@components";
 
 export default function App() {
     const handleClick = (event) => {
@@ -13,6 +13,7 @@ export default function App() {
             <Seat variant="disabled" />
             <Button>Click Me!</Button>
             <SearchForm />
+            <MovieCard />
         </>
     );
 }
