@@ -1,3 +1,4 @@
+import React from "react";
 import { StyledSvg } from "./styles";
 
 export const Seat = ({ variant = "default" }) => (

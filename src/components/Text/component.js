@@ -1,3 +1,4 @@
+import React from "react";
 import { StyledText } from "./styles";
 import { getComponentTag } from "./utils";
 

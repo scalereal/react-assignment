@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { TextInput } from "@components";
 import { SearchIcon } from "./searchIcon";
 import { StyledForm } from "./styles";

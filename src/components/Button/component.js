@@ -1,3 +1,4 @@
+import React from "react";
 import { StyledButton, StyledButtonText } from "./styles";
 
 export const Button = ({ children }) => (
