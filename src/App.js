@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Seat } from "@components";
+import { Text, Seat, Button } from "@components";
 
 export default function App() {
     const handleClick = (event) => {
@@ -11,6 +11,7 @@ export default function App() {
                 Hello world!
             </Text>
             <Seat variant="disabled" />
+            <Button>Click Me!</Button>
         </>
     );
 }
