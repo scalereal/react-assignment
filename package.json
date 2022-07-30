@@ -3,25 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@medly-components/core": "^6.12.0",
-    "@medly-components/forms": "^2.1.57",
-    "@medly-components/layout": "^3.2.12",
-    "@medly-components/loaders": "^1.6.8",
-    "@medly-components/theme": "^5.1.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "craco": "^0.0.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
-    "redux": "^4.2.0",
     "styled-components": "^5.3.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
