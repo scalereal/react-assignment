@@ -1,0 +1,11 @@
+{
+    "prettier.tabWidth": 4,
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
