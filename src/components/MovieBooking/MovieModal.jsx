@@ -15,10 +15,9 @@ import { imgUrl } from "../ constants/global";
 import CloseIcon from "../Assets/closePng.png";
 const MovieModal = ({ propsData }) => {
   const { selectSeatArray, selectSeatFun, visibleFun } = propsData;
-  let param = useParams();
-
-  let total = selectSeatArray.length * 250;
-  let sgst = (total * 12) / 100;
+  const param = useParams();
+  const total = selectSeatArray.length * 250;
+  const sgst = (total * 12) / 100;
   const CloseModal = () => {
     visibleFun(false);
     selectSeatFun([]);
