@@ -39,9 +39,7 @@ const MovieModal = ({ propsData }) => {
             <article>
               <SeatHeadingStyle>Seats:</SeatHeadingStyle>
               <ModelDataFlex>
-                {selectSeatArray.map((SeatNo, index) => (
-                  <SeatHeading key={index}>{SeatNo},</SeatHeading>
-                ))}
+                <SeatHeading >{selectSeatArray.toString()}</SeatHeading>
               </ModelDataFlex>
               <ModelDataFlex>
                 <article>
