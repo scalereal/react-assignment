@@ -26,27 +26,27 @@ const MovieSeats = () => {
     selectSeatFun: setSelectSeats,
   };
 
-  let selectedSeat = [];
+  let bookedSeats = [];
   if (JSON.stringify(localStorage.getItem(param.id)) !== "null") {
-    selectedSeat = localStorage.getItem(param.id);
+    bookedSeats = localStorage.getItem(param.id);
   }
 
   const ModalShow = () => {
     if (selectSeats.length === 0 || selectSeats.length > 10) {
       alert("please select the seats in range (1-10) ");
     } else {
-      selectedSeat = selectedSeat + selectSeats;
-      localStorage.setItem(param.id, selectedSeat);
-      selectedSeat = localStorage.getItem(param.id);
+      bookedSeats = bookedSeats + selectSeats;
+      localStorage.setItem(param.id, bookedSeats);
+      bookedSeats = localStorage.getItem(param.id);
       setVisible(true);
     }
   };
 
   const clickHandel = (id) => {
-    if (selectedSeat.includes(id)) {
+    if (bookedSeats.includes(id)) {
       alert("already selected");
       let data = selectSeats.filter((mil) => {
-        return selectedSeat.includes(id) !== selectSeats[mil];
+        return bookedSeats.includes(id) !== selectSeats[mil];
       });
       setSelectSeats(data);
     } else {
@@ -83,7 +83,7 @@ const MovieSeats = () => {
                     }}
                   >
                     {(() => {
-                      switch (selectedSeat.includes(item + set)) {
+                      switch (bookedSeats.includes(item + set)) {
                         case true:
                           return <SvgImg colorName="#626262" />
                         default:
