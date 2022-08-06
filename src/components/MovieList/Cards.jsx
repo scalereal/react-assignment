@@ -8,10 +8,10 @@ import {
   CardsImageStyle,
 } from "../Styles/Card.style";
 import { imgUrl ,fakeImg } from "../ constants/global";
-const Cards = ({ data }) => {
+const Cards = ({ responseData }) => {
   return (
     <CardsStyle>
-      {data.map((item) => {
+      {responseData.map((item) => {
         return (
           <CardStyle key={item.id}>
             <CardsImageStyle

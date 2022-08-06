@@ -5,14 +5,16 @@ import { CardDivStyle } from "../Styles/Card.style";
 import { apiUrl, searchUrl } from "../ constants/global";
 
 const MovieCard = ({ input }) => {
-  const [data, setData] = useState([]);
+  const [responseData, setResponseData] = useState([]);
 
   const getMovie = async (url) => {
     const res = await fetch(url);
     const resResults = await res.json();
     const result = resResults.results;
-    setData(result);
+    setResponseData(result);
+    
   };
+
   useEffect(() => {
     if (input.length === 0) {
       getMovie(apiUrl);
@@ -22,7 +24,7 @@ const MovieCard = ({ input }) => {
   }, [input]);
   return (
     <CardDivStyle>
-      {data.length === 0 ? <PNF /> : <Cards data={data} />}
+      {responseData.length === 0 ? <PNF /> : <Cards responseData={responseData} />}
     </CardDivStyle>
   );
 };
