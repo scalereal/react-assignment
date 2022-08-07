@@ -82,21 +82,18 @@ const MovieSeats = () => {
                       clickHandel(item + set);
                     }}
                   >
-                    {(() => {
-                      switch (bookedSeats.includes(item + set)) {
-                        case true:
+                    {(() => { 
+                      switch (true) {
+                        case bookedSeats.includes(item + set):
                           return <SeatIcon colorName="#626262" />
-                        default:
-                          switch (selectSeats.includes(item + set)) {
-                            case true:
-                              return <SeatIcon colorName="#724FD8" />
-                            default:
-                              return <SeatIcon colorName="#DADADA" />
+                        case selectSeats.includes(item + set):
+                          return <SeatIcon colorName="#724FD8" />    
+                        default:              
+                          return <SeatIcon colorName="#DADADA" />
                           }
                       }
-                    })()}
+                    )()}
                   </li>
-                
                 );
               })}
               </SeatListStyle>
