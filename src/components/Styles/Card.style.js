@@ -94,13 +94,8 @@ export const CardsStyle = styled.article`
 export const CardsImageStyle = styled.img`
   width: 100%;
   height: 100%;
+  display: block; 
   border-radius: 20px;
-
-  @media (max-width: 1230px) {
-    width: 300px;
-    height: 320px;
-    margin: 24px auto 24px auto;
-  }
 `;
 
 export const CardStyle = styled.article`
