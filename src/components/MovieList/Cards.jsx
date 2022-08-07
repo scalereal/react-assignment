@@ -7,7 +7,7 @@ import {
   TitleStyle,
   CardsImageStyle,
 } from "../Styles/Card.style";
-import { imgUrl ,fakeImg } from "../ constants/global";
+import { imgUrl ,fakeImg } from "../constants/global";
 const Cards = ({ responseData }) => {
   return (
     <CardsStyle>

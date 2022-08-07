@@ -11,7 +11,7 @@ import {
   SeatHeading,
   SeatHeadingStyle,
 } from "../Styles/Modal.styles";
-import { imgUrl } from "../ constants/global";
+import { imgUrl } from "../constants/global";
 import CloseIcon from "../Assets/closePng.png";
 const MovieModal = ({ propsData }) => {
   const { selectSeatArray, selectSeatFun, visibleFun } = propsData;

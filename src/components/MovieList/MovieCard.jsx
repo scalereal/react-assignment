@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import PNF from "./PNF";
 import { CardDivStyle } from "../Styles/Card.style";
-import { apiUrl, searchUrl } from "../ constants/global";
+import { apiUrl, searchUrl } from "../constants/global";
 
 const MovieCard = ({ input }) => {
   const [responseData, setResponseData] = useState([]);
