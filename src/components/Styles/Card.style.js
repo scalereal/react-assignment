@@ -132,7 +132,6 @@ export const CardStyle = styled.article`
     &::after {
   content: '';
   position: absolute;
-  top: 22px;
   
   }
 }
