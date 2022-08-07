@@ -8,11 +8,14 @@ const MovieCard = ({ input }) => {
   const [responseData, setResponseData] = useState([]);
 
   const getMovie = async (url) => {
+    try{
     const res = await fetch(url);
     const resResults = await res.json();
     const result = resResults.results;
     setResponseData(result);
-    
+    }catch(error){
+      console.error(error);
+    }
   };
 
   useEffect(() => {
