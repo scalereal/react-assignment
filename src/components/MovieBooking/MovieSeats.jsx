@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MovieModal from "./MovieModal";
 import { useParams } from "react-router-dom";
-import SvgImg from '../Assets/SvgImg'
+import SeatIcon from '../Assets/SeatIcon'
 import {
   SeatStyle,
   SeatTableStyle,
@@ -85,13 +85,13 @@ const MovieSeats = () => {
                     {(() => {
                       switch (bookedSeats.includes(item + set)) {
                         case true:
-                          return <SvgImg colorName="#626262" />
+                          return <SeatIcon colorName="#626262" />
                         default:
                           switch (selectSeats.includes(item + set)) {
                             case true:
-                              return <SvgImg colorName="#724FD8" />
+                              return <SeatIcon colorName="#724FD8" />
                             default:
-                              return <SvgImg colorName="#DADADA" />
+                              return <SeatIcon colorName="#DADADA" />
                           }
                       }
                     })()}
