@@ -8,7 +8,8 @@ export const ModelScreenStyle = styled.article`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
 `;
-export const ModelStyle = styled.article`
+
+export const ModelStyle = styled.main`
   height: 578px;
   width: 640px;
   left: 50%;
@@ -20,6 +21,7 @@ export const ModelStyle = styled.article`
   z-index: 2;
   position: fixed;
 `;
+
 export const HeadingStyle = styled.h1`
   font-family: "Rubik";
   font-style: normal;
@@ -64,4 +66,5 @@ export const SeatHeadingStyle = styled.h3`
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
+  text-align: start;
 `;
