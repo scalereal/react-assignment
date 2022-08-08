@@ -78,18 +78,23 @@ const MovieSeats = () => {
                 return (
                   <li 
                     key={item + set}
-                    onClick={() => {
-                      clickHandel(item + set);
-                    }}
+                    // onClick={() => {
+                    //   clickHandel(item + set);
+                    // }}
                   >
                     {(() => { 
                       switch (true) {
                         case bookedSeats.includes(item + set):
-                          return <SeatIcon colorName="#626262" />
+                          return <SeatIcon colorName="#626262"  
+                          />
                         case selectSeats.includes(item + set):
-                          return <SeatIcon colorName="#724FD8" />    
+                          return <SeatIcon colorName="#724FD8"  onClick={() => {
+                            clickHandel(item + set);
+                          }} />    
                         default:              
-                          return <SeatIcon colorName="#DADADA" />
+                          return <SeatIcon colorName="#DADADA"  onClick={() => {
+                            clickHandel(item + set);
+                          }}/>
                           }
                       }
                     )()}
