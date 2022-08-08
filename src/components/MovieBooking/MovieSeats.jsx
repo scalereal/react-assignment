@@ -43,13 +43,6 @@ const MovieSeats = () => {
   };
 
   const clickHandel = (id) => {
-    if (bookedSeats.includes(id)) {
-      alert("already selected");
-      let data = selectSeats.filter((mil) => {
-        return bookedSeats.includes(id) !== selectSeats[mil];
-      });
-      setSelectSeats(data);
-    } else {
       if (selectSeats.includes(id)) {
         let newSelectSeats = selectSeats.filter((item) => {
           return id !== item;
@@ -59,7 +52,7 @@ const MovieSeats = () => {
         setSelectSeats((prvSelectSeats) => [...prvSelectSeats, id]);
       }
     }
-  };
+  
 
   return (
     <SeatTableStyle>
@@ -77,10 +70,7 @@ const MovieSeats = () => {
               {seatsData.seat.map((set) => {
                 return (
                   <li 
-                    key={item + set}
-                    // onClick={() => {
-                    //   clickHandel(item + set);
-                    // }}
+                    key={item + set}                   
                   >
                     {(() => { 
                       switch (true) {
