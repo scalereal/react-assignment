@@ -61,6 +61,24 @@ export const SeatHeading = styled.h5`
   font-weight: 600;
   font-size: 18px;
 `;
+export const HeadingSmallStyle = styled.small`
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+`;
+export const SeatNameStyle = styled.h1`
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  margin: 0px;
+  width: 202px;
+  height: 47px;
+  text-align: start;
+
+  overflow: hidden;
+`;
 export const SeatHeadingStyle = styled.h3`
   font-family: "Rubik";
   font-style: normal;

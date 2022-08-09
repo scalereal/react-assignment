@@ -10,6 +10,8 @@ import {
   CloseButton,
   SeatHeading,
   SeatHeadingStyle,
+  SeatNameStyle,
+  HeadingSmallStyle,
 } from "../Styles/Modal.styles";
 import { imgUrl } from "../constants/global";
 import CloseIcon from "../Assets/closePng.png";
@@ -41,20 +43,20 @@ const MovieModal = ({ selectSeatArray, selectSeatFunc, visibleFunc }) => {
             <article>
               <SeatHeadingStyle>Seats:</SeatHeadingStyle>
               <ModelDataFlex>
-                <SeatHeading>{selectSeatArray.toString()}</SeatHeading>
+                <SeatNameStyle>{selectSeatArray.toString()}</SeatNameStyle>
               </ModelDataFlex>
               <ModelDataFlex>
                 <article>
                   <SeatHeading>{selectSeatArray.length}*250:</SeatHeading>
-                  <span>SGST(12%):</span>
+                  <HeadingSmallStyle>SGST(12%):</HeadingSmallStyle>
                   <br />
-                  <span>CGST(12%):</span>
+                  <HeadingSmallStyle>CGST(12%):</HeadingSmallStyle>
                 </article>
                 <article>
                   <SeatHeading>{total}</SeatHeading>
-                  <span>{sgst}</span>
+                  <HeadingSmallStyle>{sgst}</HeadingSmallStyle>
                   <br />
-                  <span>{sgst}</span>
+                  <HeadingSmallStyle>{sgst}</HeadingSmallStyle>
                 </article>
               </ModelDataFlex>
               <hr />
