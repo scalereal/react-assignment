@@ -13,14 +13,18 @@ import {
 } from "../Styles/Modal.styles";
 import { imgUrl } from "../constants/global";
 import CloseIcon from "../Assets/closePng.png";
+
 const MovieModal = ({ selectSeatArray, selectSeatFunc, visibleFunc }) => {
   const param = useParams();
   const total = selectSeatArray.length * 250;
   const sgst = (total * 12) / 100;
+
   const CloseModal = () => {
     visibleFunc(false);
     selectSeatFunc([]);
   };
+  const path = localStorage.getItem(param.title);
+
   return (
     <ModelScreenStyle>
       <ModelStyle>
@@ -32,12 +36,12 @@ const MovieModal = ({ selectSeatArray, selectSeatFunc, visibleFunc }) => {
         <article>
           <ModelDataFlex>
             <article>
-              <ImageStyles src={imgUrl + param.path} alt="movie" />
+              <ImageStyles src={imgUrl + path} alt="movie" />
             </article>
             <article>
               <SeatHeadingStyle>Seats:</SeatHeadingStyle>
               <ModelDataFlex>
-                <SeatHeading >{selectSeatArray.toString()}</SeatHeading>
+                <SeatHeading>{selectSeatArray.toString()}</SeatHeading>
               </ModelDataFlex>
               <ModelDataFlex>
                 <article>

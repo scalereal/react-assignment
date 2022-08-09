@@ -16,6 +16,7 @@ const MovieCard = ({ input }) => {
     }catch(error){
       console.error(error);
     }
+    
   };
 
   useEffect(() => {

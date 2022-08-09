@@ -8,7 +8,13 @@ import {
   CardsImageStyle,
 } from "../Styles/Card.style";
 import { imgUrl ,fakeImg } from "../constants/global";
+
 const Cards = ({ responseData }) => {
+  
+  const SetPathData = (title , path)=>{
+    localStorage.setItem(title, path);
+  }
+
   return (
     <CardsStyle>
       {responseData.map((item) => {
@@ -19,8 +25,8 @@ const Cards = ({ responseData }) => {
               alt={item.title}
             />
             <TitleStyle>{item.title}</TitleStyle>
-            <NavLink to={`/booking/${item.id}${item.poster_path}`}>
-              <ButtonStyle>Book now</ButtonStyle>
+            <NavLink to={`/booking/${item.id}/${item.title}`}>
+              <ButtonStyle onClick={()=>SetPathData(item.title , item.poster_path)}>Book now</ButtonStyle>
             </NavLink>
           </CardStyle>
         );
