@@ -8,7 +8,7 @@ export default function App() {
     <div>
       <Routes>
         <Route path="/" element={<Moviehome />} />
-        <Route path="/booking/:id/:path" element={<BookingHome />} />
+        <Route path="/booking/:id/:title" element={<BookingHome />} />
       </Routes>
     </div>
   );

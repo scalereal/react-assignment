@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom";
 import {
   CardStyle,
   CardsStyle,
-  ButtonStyle,
   TitleStyle,
   CardsImageStyle,
 } from "../Styles/Card.style";
+import {Button} from '../Styles/Button.style'
 import { imgUrl ,fakeImg } from "../constants/global";
+
 
 const Cards = ({ responseData }) => {
   
@@ -26,7 +27,7 @@ const Cards = ({ responseData }) => {
             />
             <TitleStyle>{item.title}</TitleStyle>
             <NavLink to={`/booking/${item.id}/${item.title}`}>
-              <ButtonStyle onClick={()=>SetPathData(item.title , item.poster_path)}>Book now</ButtonStyle>
+              <Button onClick={()=>SetPathData(item.title , item.poster_path)}>Book now</Button>
             </NavLink>
           </CardStyle>
         );

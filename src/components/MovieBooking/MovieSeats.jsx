@@ -5,11 +5,12 @@ import SeatIcon from '../Assets/SeatIcon'
 import {
   SeatStyle,
   SeatTableStyle,
-  SeatButtonStyle,
   ListStyle,
   SeatRowStyle,
   SeatListStyle,
+  SeatButtonStyle,
 } from "../Styles/Seat.style";
+
 
 const seatsData = {
   id: ["A", "B", "C", "D"],

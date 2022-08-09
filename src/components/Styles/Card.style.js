@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import searchIcon from "../Assets/SearchBar.png";
+import {Button} from './Button.style'
 
 export const HeaderStyle = styled.header`
   display: flex;
@@ -49,35 +50,6 @@ export const TitleStyle = styled.h1`
   z-index: 2;
 `;
 
-export const ButtonStyle = styled.button`
-  position: absolute;
-  top: 245px;
-  left: 89px;
-  right: 87px;
-  bottom: 37px;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  background-color: #352c9a;
-  color: white;
-  width: 145px;
-  height: 43px;
-  margin-top: 20px;
-  border-style: none;
-  opacity: 0;
-  z-index: 2;
-
-  &:hover {
-    background-color: #724fd8;
-  }
-  &:active {
-    text-decoration: underline;
-  }
-  &:disabled {
-    background-color: #626262;
-  }
-`;
 
 export const CardDivStyle = styled.article`
   max-width: 1200px;
@@ -121,7 +93,7 @@ export const CardStyle = styled.article`
   opacity: 1;
 
 }
-&:hover  ${ButtonStyle} {
+&:hover  ${Button} {
   opacity: 1;
 
 }

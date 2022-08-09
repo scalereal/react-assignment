@@ -12,13 +12,16 @@ export const SeatImgStyle = styled.img`
   width: 1082px;
   height: 129px;
 `;
+
 export const SeatTableStyle = styled.article`
   margin: 75px auto 304px auto;
 `;
+
 export const SeatStyle = styled.article`
   display: flex;
   justify-content: space-evenly;
 `;
+
 export const SeatRowStyle = styled.article`
   font-family: "Inter";
   font-style: normal;
@@ -32,6 +35,7 @@ export const ListStyle = styled.ol`
   list-style: none;
   display: flex;
   justify-content: space-evenly;
+
   li {
     text-align: center;
     font-family: "Inter";
@@ -39,11 +43,12 @@ export const ListStyle = styled.ol`
     font-weight: 400;
     font-size: 48px;
   }
+  
 `;
+
 export const SeatButtonStyle = styled.button`
   width: 190px;
   height: 43px;
-  margin: 109 auto 152px auto;
   color: white;
   background-color: #352c9a;
   font-family: "Rubik";
@@ -51,6 +56,15 @@ export const SeatButtonStyle = styled.button`
   font-weight: 500;
   font-size: 16px;
   margin: 125px 450px 152px 450px;
+  &:hover {
+    background-color: #724fd8;
+  }
+  &:active {
+    text-decoration: underline;
+  }
+  &:disabled {
+    background-color: #626262;
+  }
 `;
 
 export const SeatListStyle= styled.ol`
