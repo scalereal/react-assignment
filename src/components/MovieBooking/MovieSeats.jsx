@@ -19,13 +19,6 @@ const MovieSeats = () => {
   const [visible, setVisible] = useState(false);
   const [selectSeats, setSelectSeats] = useState([]);
   let param = useParams();
-
-  let propsData = {
-    selectSeatArray: selectSeats,
-    visibleFun: setVisible,
-    selectSeatFun: setSelectSeats,
-  };
-
   let bookedSeats = [];
   if (JSON.stringify(localStorage.getItem(param.id)) !== "null") {
     bookedSeats = localStorage.getItem(param.id);
@@ -97,7 +90,9 @@ const MovieSeats = () => {
         })}
       </article>
       <SeatButtonStyle onClick={ModalShow}>Confirm Booking</SeatButtonStyle>
-      {visible && <MovieModal propsData={propsData} />}
+      {visible && <MovieModal selectSeatArray={selectSeats}
+    visibleFunc={setVisible}
+    selectSeatFunc={setSelectSeats} />}
     </SeatTableStyle>
   );
 };
