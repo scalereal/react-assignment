@@ -8,8 +8,8 @@ import {
   ListStyle,
   SeatRowStyle,
   SeatListStyle,
-  SeatButtonStyle,
 } from "../Styles/Seat.style";
+import {Button} from '../Styles/Button.style'
 
 
 const seatsData = {
@@ -90,7 +90,7 @@ const MovieSeats = () => {
           );
         })}
       </article>
-      <SeatButtonStyle onClick={ModalShow}>Confirm Booking</SeatButtonStyle>
+      <Button margin="125px 450px 152px 450px" width="190px"  onClick={ModalShow}>Confirm Booking</Button>
       {visible && <MovieModal selectSeatArray={selectSeats}
     visibleFunc={setVisible}
     selectSeatFunc={setSelectSeats} />}

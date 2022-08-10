@@ -46,27 +46,6 @@ export const ListStyle = styled.ol`
   
 `;
 
-export const SeatButtonStyle = styled.button`
-  width: 190px;
-  height: 43px;
-  color: white;
-  background-color: #352c9a;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  margin: 125px 450px 152px 450px;
-  &:hover {
-    background-color: #724fd8;
-  }
-  &:active {
-    text-decoration: underline;
-  }
-  &:disabled {
-    background-color: #626262;
-  }
-`;
-
 export const SeatListStyle= styled.ol`
 display: flex;
 list-style: none;

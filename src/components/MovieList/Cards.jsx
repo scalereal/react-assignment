@@ -27,7 +27,7 @@ const Cards = ({ responseData }) => {
             />
             <TitleStyle>{item.title}</TitleStyle>
             <NavLink to={`/booking/${item.id}/${item.title}`}>
-              <Button onClick={()=>SetPathData(item.title , item.poster_path)}>Book now</Button>
+              <Button position="absolute"  opacity="0" z_index="2" width="145px"  onClick={()=>SetPathData(item.title , item.poster_path)}>Book now</Button>
             </NavLink>
           </CardStyle>
         );
