@@ -24,6 +24,8 @@ export default function Modal({ setVisible, selectedSeats, setSelectedSeats }) {
     setSelectedSeats([]);
   };
   const param = useParams();
+  const imgPath = localStorage.getItem(param.title)
+  
   return (
     <ModalScreen>
       <ModalStyle>
@@ -31,7 +33,7 @@ export default function Modal({ setVisible, selectedSeats, setSelectedSeats }) {
         <ModalH1>Thank you for booking</ModalH1>
         <ModalH3>Order Summary</ModalH3>
         <ModalDiv>
-          <MoviePic src={imgUrl + param.path} alt="movie" />
+          <MoviePic src={imgUrl + imgPath} alt="movie" />
 
           <article>
             <h3>Seats:</h3>
