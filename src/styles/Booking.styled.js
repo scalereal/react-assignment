@@ -133,3 +133,9 @@ export const ModalScreen =styled.article`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
 `
+export const ModalSeatH3 = styled.h3`
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+`

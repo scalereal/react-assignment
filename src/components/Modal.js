@@ -13,6 +13,7 @@ import {
   ModalDivSeat,
   ModalSeatH1,
   ModalScreen,
+  ModalSeatH3,
 } from "../styles/Booking.styled";
 
 import close from "../Asset/Xclose.png";
@@ -36,7 +37,7 @@ export default function Modal({ setVisible, selectedSeats, setSelectedSeats }) {
           <MoviePic src={imgUrl + imgPath} alt="movie" />
 
           <article>
-            <h3>Seats:</h3>
+            <ModalSeatH3>Seats:</ModalSeatH3> 
             <ModalDivSeat>
               <ModalSeatH1>{selectedSeats.toString()}</ModalSeatH1>
             </ModalDivSeat>
