@@ -3,12 +3,12 @@ import { data } from "./constants/Global";
 import { BookingTableSeats, SeatRow } from "../styles/Booking.styled";
 import SvgImg from "../Asset/SvgImg";
 
-const MovieSeats = ({ selectedSeats, selected, setSelectedSeats }) => {
+const MovieSeats = ({ selectedSeats, bookedSeats, setSelectedSeats }) => {
   function handleSeats(id) {
-    if (selected.includes(id)) {
+    if (bookedSeats.includes(id)) {
       alert("already selected");
       let data = selectedSeats.filter((item) => {
-        return selected.includes(id) !== selectedSeats[item];
+        return bookedSeats.includes(id) !== selectedSeats[item];
       });
       setSelectedSeats(data);
     } else {
@@ -45,7 +45,7 @@ const MovieSeats = ({ selectedSeats, selected, setSelectedSeats }) => {
                       >
                         {(() => {
                           switch (true) {
-                            case selected.includes(id + (index + 1)):
+                            case bookedSeats.includes(id + (index + 1)):
                               return <SvgImg colorName="#626262" />;
                             case selectedSeats.includes(id + (index + 1)):
                               return <SvgImg colorName="#724FD8" />;

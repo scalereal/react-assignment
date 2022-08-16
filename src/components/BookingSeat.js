@@ -14,10 +14,10 @@ function BookingSeat() {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   let param = useParams();
-  let selected = [];
+  let bookedSeats = [];
 
   if (JSON.stringify(localStorage.getItem(param.id)) !== "null") {
-    selected = localStorage.getItem(param.id);
+    bookedSeats = localStorage.getItem(param.id);
   }
 
   const modalHandle = () => {
@@ -35,9 +35,9 @@ function BookingSeat() {
         alert(" Please select seats first");
         break;
       default:
-        selected = selected + selectedSeats + ",";
-        localStorage.setItem(param.id, selected);
-        selected = localStorage.getItem(param.id);
+        bookedSeats = bookedSeats + selectedSeats + ",";
+        localStorage.setItem(param.id, bookedSeats);
+        bookedSeats = localStorage.getItem(param.id);
     }
   };
 
@@ -46,7 +46,7 @@ function BookingSeat() {
       <VectorImg src={vector} alt="vector" />
       <MovieSeats
         selectedSeats={selectedSeats}
-        selected={selected}
+        bookedSeats={bookedSeats}
         setSelectedSeats={setSelectedSeats}
       />
       <ConfirmButton onClick={modalHandle}>Confirm booking</ConfirmButton>
