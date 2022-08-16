@@ -44,18 +44,13 @@ const MovieSeats = ({ selectedSeats, selected, setSelectedSeats }) => {
                         onClick={() => handleSeats(id + (index + 1))}
                       >
                         {(() => {
-                          switch (selected.includes(id + (index + 1))) {
-                            case true:
+                          switch (true) {
+                            case selected.includes(id + (index + 1)):
                               return <SvgImg colorName="#626262" />;
+                            case selectedSeats.includes(id + (index + 1)):
+                              return <SvgImg colorName="#724FD8" />;
                             default:
-                              switch (
-                                selectedSeats.includes(id + (index + 1))
-                              ) {
-                                case true:
-                                  return <SvgImg colorName="#724FD8" />;
-                                default:
-                                  return <SvgImg colorName="#DADADA" />;
-                              }
+                              return <SvgImg colorName="#DADADA" />;
                           }
                         })()}
                       </td>
