@@ -18,7 +18,7 @@ import {
 
 import close from "../Asset/Xclose.png";
 import { useParams } from "react-router";
-const imgUrl = "https://image.tmdb.org/t/p/w500/";
+import { imgUrl } from "./constants/Global";
 
 const Modal = ({ setVisible, selectedSeats, setSelectedSeats }) => {
   const modalClose = () => {
