@@ -6,7 +6,7 @@ import {
   BookingStyles,
   VectorImg,
   ConfirmButton,
- } from "../styles/Booking.styled";
+} from "../styles/Booking.styled";
 import MovieSeats from "./MovieSeats";
 
 function BookingSeat() {
@@ -22,35 +22,34 @@ function BookingSeat() {
 
   const modalHandle = () => {
     setModalVisible(true);
-    switch (selectedSeats.length > 10) {
-      case true:
+    switch (true) {
+      case selectedSeats.length > 10:
         setModalVisible(false);
         alert(`you can't select more than 10 seats.. 
              you have selected ${selectedSeats.length} seats.
              Please deselect ${selectedSeats.length - 10} seats`);
         break;
+
+      case selectedSeats.length === 0:
+        setModalVisible(false);
+        alert(" Please select seats first");
+        break;
       default:
-        switch (selectedSeats.length) {
-          case 0:
-            setModalVisible(false);
-            alert(" Please select seats first");
-            break;
-          default:
-            selected = selected + selectedSeats + ",";
-            localStorage.setItem(param.id, selected);
-            selected = localStorage.getItem(param.id)
-        }
+        selected = selected + selectedSeats + ",";
+        localStorage.setItem(param.id, selected);
+        selected = localStorage.getItem(param.id);
     }
   };
 
   return (
     <BookingStyles>
       <VectorImg src={vector} alt="vector" />
-     <MovieSeats selectedSeats ={selectedSeats} 
-     selected ={selected} 
-     setSelectedSeats={setSelectedSeats}
-     />
-     <ConfirmButton onClick={modalHandle}>Confirm booking</ConfirmButton>
+      <MovieSeats
+        selectedSeats={selectedSeats}
+        selected={selected}
+        setSelectedSeats={setSelectedSeats}
+      />
+      <ConfirmButton onClick={modalHandle}>Confirm booking</ConfirmButton>
       <article>
         {modalVisible && (
           <Modal
