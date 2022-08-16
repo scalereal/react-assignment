@@ -9,7 +9,7 @@ import {
 } from "../styles/Booking.styled";
 import MovieSeats from "./MovieSeats";
 
-function BookingSeat() {
+const BookingSeat = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedSeats, setSelectedSeats] = useState([]);
 
@@ -60,5 +60,5 @@ function BookingSeat() {
       )}
     </BookingStyles>
   );
-}
+};
 export default BookingSeat;

@@ -19,14 +19,15 @@ import {
 import close from "../Asset/Xclose.png";
 import { useParams } from "react-router";
 const imgUrl = "https://image.tmdb.org/t/p/w500/";
-export default function Modal({ setVisible, selectedSeats, setSelectedSeats }) {
+
+const Modal = ({ setVisible, selectedSeats, setSelectedSeats }) => {
   const modalClose = () => {
     setVisible(false);
     setSelectedSeats([]);
   };
   const param = useParams();
-  const imgPath = localStorage.getItem(param.title)
-  
+  const imgPath = localStorage.getItem(param.title);
+
   return (
     <ModalScreen>
       <ModalStyle>
@@ -37,7 +38,7 @@ export default function Modal({ setVisible, selectedSeats, setSelectedSeats }) {
           <MoviePic src={imgUrl + imgPath} alt="movie" />
 
           <article>
-            <ModalSeatH3>Seats:</ModalSeatH3> 
+            <ModalSeatH3>Seats:</ModalSeatH3>
             <ModalDivSeat>
               <ModalSeatH1>{selectedSeats.toString()}</ModalSeatH1>
             </ModalDivSeat>
@@ -74,4 +75,5 @@ export default function Modal({ setVisible, selectedSeats, setSelectedSeats }) {
       </ModalStyle>
     </ModalScreen>
   );
-}
+};
+export default Modal;

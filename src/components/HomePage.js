@@ -8,15 +8,15 @@ import { Cards } from "../styles/Cards.styled";
 import PageNotFound from "./PageNotFound";
 import { apiUrl, searchUrl } from "./constants/Global";
 
-function HomePage() {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  async function getMovies(url) {
+  const getMovies = async (url) => {
     const response = await axios.get(url);
     const result = response.data.results;
     setMovies(result);
-  }
+  };
 
   const submit = (e) => {
     e.preventDefault();
@@ -55,6 +55,6 @@ function HomePage() {
       )}
     </>
   );
-}
+};
 
 export default HomePage;
