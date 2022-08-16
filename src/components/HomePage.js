@@ -4,43 +4,41 @@ import MovieCard from "./MovieCard";
 
 import { Container } from "../styles/Container.styled";
 import GlobalStyles from "../styles/Global.styled";
-import { Cards } from "../styles/Cards.styled"
+import { Cards } from "../styles/Cards.styled";
 import PageNotFound from "./PageNotFound";
-import {apiUrl,searchUrl} from "./constants/Global"
+import { apiUrl, searchUrl } from "./constants/Global";
 
-
-function HomePage(){
+function HomePage() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    getMovies(apiUrl)
-  },
-    [])
 
   async function getMovies(url) {
     const response = await axios.get(url);
     const result = response.data.results;
-
     setMovies(result);
   }
 
   const submit = (e) => {
     e.preventDefault();
     if (searchTerm) {
-      getMovies(`${searchUrl}&query=${searchTerm}`)
+      getMovies(`${searchUrl}&query=${searchTerm}`);
     } else {
-      getMovies(apiUrl)
+      getMovies(apiUrl);
     }
-  }
+  };
 
+  useEffect(() => {
+    getMovies(apiUrl);
+  }, []);
   return (
     <>
       <GlobalStyles />
       <Container>
         <h1>Book Tickets</h1>
         <form onSubmit={submit}>
-          <input type="text" placeholder="search"
+          <input
+            type="text"
+            placeholder="search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -48,15 +46,13 @@ function HomePage(){
       </Container>
       {movies.length > 0 ? (
         <Cards>
-          {movies.map((movie) =>
-            <MovieCard movie={movie} key = {movie.id}/>
-          )}
+          {movies.map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
         </Cards>
       ) : (
-        <PageNotFound/>
+        <PageNotFound />
       )}
-
-
     </>
   );
 }
