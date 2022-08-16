@@ -50,15 +50,14 @@ function BookingSeat() {
         setSelectedSeats={setSelectedSeats}
       />
       <ConfirmButton onClick={modalHandle}>Confirm booking</ConfirmButton>
-      <article>
-        {modalVisible && (
-          <Modal
-            setVisible={setModalVisible}
-            selectedSeats={selectedSeats}
-            setSelectedSeats={setSelectedSeats}
-          />
-        )}
-      </article>
+
+      {modalVisible && (
+        <Modal
+          setVisible={setModalVisible}
+          selectedSeats={selectedSeats}
+          setSelectedSeats={setSelectedSeats}
+        />
+      )}
     </BookingStyles>
   );
 }
