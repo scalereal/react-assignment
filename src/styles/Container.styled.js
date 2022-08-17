@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import searchIcon from "../Asset/Vector.png";
 
-export const Container =styled.header`
-display: flex;
-flex-direction: column;
-align-items: center;
+export const Container = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-h1{
-    font-family:"Roboto Mono";
+  h1 {
+    font-family: "Roboto Mono";
     font-size: 48px;
     font-weight: 400;
     margin-top: 23px;
-}
+  }
 
-form {
+  form {
     margin-top: 40px;
     margin-bottom: 66px;
-}
+  }
 
-input[type="text"] {
+  input[type="text"] {
     padding: 12px 16px;
     width: 300px;
     height: 43px;
@@ -30,14 +30,14 @@ input[type="text"] {
     background-repeat: no-repeat;
     background-position: right;
     background-position: calc(100% - 20px) center;
-    
-    &:focus::placeholder {
-        color: white;
-      }
-}
-@media(max-width:468px) {
-    h1{
-        font-size: 36px;
-    }}
 
-`
+    &:focus::placeholder {
+      color: white;
+    }
+  }
+  @media (max-width: 468px) {
+    h1 {
+      font-size: 36px;
+    }
+  }
+`;

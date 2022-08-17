@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { ButtonStyle } from "../components/Button/Button.styled";
 export const Card = styled.article`
   position: relative;
 
@@ -50,36 +50,17 @@ export const Card = styled.article`
     border-radius: 20px;
     box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.25);
   }
-
-  button {
+  ${ButtonStyle} {
     position: absolute;
     left: 29.43%;
     right: 29.14%;
     top: 76.74%;
     bottom: 11.76%;
-    height: 43px;
-    width: 145px;
-    background-color: #352c9a;
-    color: #ffffff;
-    font-family: "Rubik";
-    font-size: 16px;
-    font-weight: 500;
-    border-style: none;
     z-index: 2;
     opacity: 0;
-  }
-  button:hover {
-    background-color: #724fd8;
+    width: 145px;
   }
 
-  button:active {
-    background-color: #724fdf;
-    text-decoration: underline;
-  }
-
-  button:disabled {
-    background-color: #626262;
-  }
   @media (max-width: 1200px) {
     margin: 24px auto 24px auto;
 
@@ -88,7 +69,7 @@ export const Card = styled.article`
       height: 320px;
     }
 
-    button {
+    ${ButtonStyle} {
       height: 37px;
       width: 124px;
       left: 88px;
@@ -103,7 +84,7 @@ export const Card = styled.article`
       height: 320px;
       width: 300px;
     }
-    button {
+    ${ButtonStyle} {
       width: 124.29px;
       height: 36.79px;
     }
