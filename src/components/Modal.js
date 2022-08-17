@@ -18,7 +18,7 @@ import {
 
 import close from "../Asset/Xclose.png";
 import { useParams } from "react-router";
-import { imgUrl } from "./constants/Global";
+import { imgUrl } from "../GlobalConstants";
 
 const Modal = ({ setVisible, selectedSeats, setSelectedSeats }) => {
   const modalClose = () => {

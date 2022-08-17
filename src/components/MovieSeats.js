@@ -1,7 +1,7 @@
 import React from "react";
-import { data } from "./constants/Global";
+import { data } from "../GlobalConstants";
 import { BookingTableSeats, SeatRow } from "../styles/Booking.styled";
-import SvgImg from "../Asset/SvgImg";
+import SeatIcon from "../Asset/SeatIcon";
 
 const MovieSeats = ({ selectedSeats, bookedSeats, setSelectedSeats }) => {
   function handleSeats(id) {
@@ -46,11 +46,11 @@ const MovieSeats = ({ selectedSeats, bookedSeats, setSelectedSeats }) => {
                         {(() => {
                           switch (true) {
                             case bookedSeats.includes(id + (index + 1)):
-                              return <SvgImg colorName="#626262" />;
+                              return <SeatIcon colorName="#626262" />;
                             case selectedSeats.includes(id + (index + 1)):
-                              return <SvgImg colorName="#724FD8" />;
+                              return <SeatIcon colorName="#724FD8" />;
                             default:
-                              return <SvgImg colorName="#DADADA" />;
+                              return <SeatIcon colorName="#DADADA" />;
                           }
                         })()}
                       </td>

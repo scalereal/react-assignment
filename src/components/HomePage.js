@@ -6,7 +6,7 @@ import { Container } from "../styles/Container.styled";
 
 import { Cards } from "../styles/Cards.styled";
 import PageNotFound from "./PageNotFound";
-import { apiUrl, searchUrl } from "./constants/Global";
+import { apiUrl, searchUrl } from "../GlobalConstants";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);

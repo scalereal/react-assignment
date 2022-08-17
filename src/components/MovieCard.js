@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Card } from "../styles/MovieCard.styled";
-import {imgUrl,fakeImg} from './constants/Global'
+import {imgUrl,fakeImg} from '../GlobalConstants';
 const MovieCard = ({ movie }) => {
 const ImagePath =(title,path)=>{
 localStorage.setItem(title,path)
