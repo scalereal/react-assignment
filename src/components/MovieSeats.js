@@ -5,21 +5,14 @@ import SeatIcon from "../Asset/SeatIcon";
 
 const MovieSeats = ({ selectedSeats, bookedSeats, setSelectedSeats }) => {
   function handleSeats(id) {
-    if (bookedSeats.includes(id)) {
-      alert("already selected");
-      let data = selectedSeats.filter((item) => {
-        return bookedSeats.includes(id) !== selectedSeats[item];
-      });
-      setSelectedSeats(data);
+    if (selectedSeats.includes(id)) {
+      const updatedSeats = selectedSeats.filter((seatId) => seatId !== id);
+      setSelectedSeats(updatedSeats);
     } else {
-      if (selectedSeats.includes(id)) {
-        const updatedSeats = selectedSeats.filter((seatId) => seatId !== id);
-        setSelectedSeats(updatedSeats);
-      } else {
-        setSelectedSeats((prevSeats) => [...prevSeats, id]);
-      }
+      setSelectedSeats((prevSeats) => [...prevSeats, id]);
     }
   }
+
   return (
     <BookingTableSeats>
       <thead>
@@ -39,18 +32,25 @@ const MovieSeats = ({ selectedSeats, bookedSeats, setSelectedSeats }) => {
                 {data.seats.map((_, index) => {
                   return (
                     <React.Fragment key={index}>
-                      <td
-                        key={id + index}
-                        onClick={() => handleSeats(id + (index + 1))}
-                      >
+                      <td key={id + index}>
                         {(() => {
                           switch (true) {
                             case bookedSeats.includes(id + (index + 1)):
                               return <SeatIcon colorName="#626262" />;
                             case selectedSeats.includes(id + (index + 1)):
-                              return <SeatIcon colorName="#724FD8" />;
+                              return (
+                                <SeatIcon
+                                  colorName="#724FD8"
+                                  onClick={() => handleSeats(id + (index + 1))}
+                                />
+                              );
                             default:
-                              return <SeatIcon colorName="#DADADA" />;
+                              return (
+                                <SeatIcon
+                                  colorName="#DADADA"
+                                  onClick={() => handleSeats(id + (index + 1))}
+                                />
+                              );
                           }
                         })()}
                       </td>
